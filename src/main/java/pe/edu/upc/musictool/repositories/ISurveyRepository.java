@@ -8,3 +8,4 @@ import pe.edu.upc.musictool.entities.Survey;
 
 public interface ISurveyRepository extends JpaRepository <Survey,Integer> {
 }
+
