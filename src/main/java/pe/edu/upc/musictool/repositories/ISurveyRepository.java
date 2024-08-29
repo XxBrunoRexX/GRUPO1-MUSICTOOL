@@ -21,5 +21,5 @@ public interface ISurveyRepository extends JpaRepository <Survey,Integer> {
 
     @Query("select e from Survey e where e.creationDate = :fecha  ")
 
-    public List<Survey> buscarFecha(@Param("fecha") LocalDate fecha);//correccion
+    public List<Survey> buscarFecha(@Param("fecha") LocalDate fecha);//correccion2
 }
