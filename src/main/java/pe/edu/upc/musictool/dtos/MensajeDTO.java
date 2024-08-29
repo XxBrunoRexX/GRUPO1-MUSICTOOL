@@ -1,9 +1,11 @@
 package pe.edu.upc.musictool.dtos;
 
+import java.time.LocalDate;
+
 public class MensajeDTO {
     private int id;
     private String content;
-    private String dataSent;
+    private LocalDate dateSent;
 
     public int getId() {
         return id;
@@ -21,11 +23,11 @@ public class MensajeDTO {
         this.content = content;
     }
 
-    public String getDataSent() {
-        return dataSent;
+    public LocalDate getDateSent() {
+        return dateSent;
     }
 
-    public void setDataSent(String dataSent) {
-        this.dataSent = dataSent;
+    public void setDateSent(LocalDate dateSent) {
+        this.dateSent = dateSent;
     }
 }

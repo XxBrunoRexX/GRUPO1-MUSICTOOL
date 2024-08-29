@@ -2,6 +2,8 @@ package pe.edu.upc.musictool.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "Mensaje")
 public class Mensaje {
@@ -10,8 +12,8 @@ public class Mensaje {
     private int id;
     @Column(name = "content", nullable = false, length = 100)
     private String content;
-    @Column(name = "dateSent", nullable = false, length = 100)
-    private String dateSent;
+    @Column(name = "dateSent", nullable = false, length = 500)
+    private LocalDate dateSent;
 
     public Mensaje() {
     }
@@ -32,11 +34,11 @@ public class Mensaje {
         this.content = content;
     }
 
-    public String getDateSent() {
+    public LocalDate getDateSent() {
         return dateSent;
     }
 
-    public void setDateSent(String dateSent) {
+    public void setDateSent(LocalDate dateSent) {
         this.dateSent = dateSent;
     }
 }
