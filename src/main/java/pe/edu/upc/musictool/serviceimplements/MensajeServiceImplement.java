@@ -23,4 +23,14 @@ public class MensajeServiceImplement implements IMensajeService {
     public Mensaje listId(int id) {
         return mR.findById(id).orElse(new Mensaje());
     }
+
+    @Override
+    public void update(Mensaje me) {
+        mR.save(me);
+    }
+
+    @Override
+    public void delete(int id) {
+        mR.deleteById(id);
+    }
 }

@@ -35,4 +35,14 @@ public class MensajeController {
         MensajeDTO dto = m.map(mS.listId(id), MensajeDTO.class);
         return dto;
     }
+    @PutMapping
+    public void modificar(@RequestBody MensajeDTO dto){
+        ModelMapper m = new ModelMapper();
+        Mensaje msg = m.map(dto, Mensaje.class);
+        mS.update(msg);
+    }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        mS.delete(id);
+    }
 }

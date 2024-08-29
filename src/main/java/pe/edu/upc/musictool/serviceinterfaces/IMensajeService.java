@@ -8,4 +8,6 @@ public interface IMensajeService {
     public List<Mensaje> list();
     public void insert(Mensaje me);
     public Mensaje listId(int id);
+    public void update(Mensaje me);
+    public void delete(int id);
 }
