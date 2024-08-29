@@ -29,4 +29,10 @@ public class MensajeController {
         Mensaje msg = m.map(dto, Mensaje.class);
         mS.insert(msg);
     }
+    @GetMapping("/{id}")
+    public MensajeDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m = new ModelMapper();
+        MensajeDTO dto = m.map(mS.listId(id), MensajeDTO.class);
+        return dto;
+    }
 }

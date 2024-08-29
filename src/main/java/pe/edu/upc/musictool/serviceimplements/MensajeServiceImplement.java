@@ -18,4 +18,9 @@ public class MensajeServiceImplement implements IMensajeService {
 
     @Override
     public void insert(Mensaje me) { mR.save(me); }
+
+    @Override
+    public Mensaje listId(int id) {
+        return mR.findById(id).orElse(new Mensaje());
+    }
 }
