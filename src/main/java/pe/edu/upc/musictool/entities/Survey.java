@@ -3,24 +3,34 @@ package pe.edu.upc.musictool.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "Survey")
 public class Survey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "question1",nullable = false,length = 100)
+    @Column(name = "question1", nullable = false, length = 100)
     private String question1;
-    @Column(name = "question2",nullable = false,length = 100)
+    @Column(name = "question2", nullable = false, length = 100)
     private String question2;
-    @Column(name = "title",nullable = false,length = 50)
+    @Column(name = "title", nullable = false, length = 50)
     private String title;
-    @Column(name = "description",nullable = false,length = 100)
+    @Column(name = "description", nullable = false, length = 100)
     private String description;
-    @Column(name = "creationDate",nullable = false)
+    @Column(name = "creationDate", nullable = false)
     private LocalDate creationDate;
 
     public Survey() {
+    }
+
+    public Survey(int id, String question1, String question2, String title, String description, LocalDate creationDate) {
+    this.id = id;
+    this.question1 = question1;
+    this.question2 = question2;
+    this.title = title;
+    this.description = description;
+    this.creationDate = creationDate;
     }
 
     public int getId() {
