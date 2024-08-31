@@ -23,3 +23,4 @@ public interface ISurveyRepository extends JpaRepository <Survey,Integer> {
 
     public List<Survey> buscarFecha(@Param("fecha") LocalDate fecha);//correccion2
 }
+
