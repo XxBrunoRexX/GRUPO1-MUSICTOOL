@@ -6,7 +6,10 @@ import pe.edu.upc.musictool.entities.User;
 import pe.edu.upc.musictool.repositories.IUserRepository;
 import pe.edu.upc.musictool.serviceinterfaces.IUserService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserServiceImplement implements IUserService {
     @Autowired
@@ -20,6 +23,12 @@ public class UserServiceImplement implements IUserService {
     public List<User> buscar(String tipousuario) {
         return uS.buscar(tipousuario);
     }
+
+    @Override
+    public User listId(int id_user) {
+        return uS.findById(id_user).orElse(new User());
+    }
+
 
     @Override
     public void insert(User u) {
