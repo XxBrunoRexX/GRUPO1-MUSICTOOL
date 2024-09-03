@@ -12,4 +12,6 @@ import java.util.List;
 public interface IPreRelease_SongsRepository extends JpaRepository<PreRelease_Songs, Integer> {
     @Query("select p from PreRelease_Songs p where p.genre like %:genre%")
     public List<PreRelease_Songs> buscarGenero(@Param(("genre")) String genero);
+    @Query("select p from PreRelease_Songs p where p.name like %:name%")
+    public List<PreRelease_Songs> buscarNombre(@Param(("name")) String nombre);
 }
