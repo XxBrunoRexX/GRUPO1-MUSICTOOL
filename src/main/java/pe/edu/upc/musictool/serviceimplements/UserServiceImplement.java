@@ -20,4 +20,22 @@ public class UserServiceImplement implements IUserService {
     public List<User> buscar(String tipousuario) {
         return uS.buscar(tipousuario);
     }
-}
+
+    @Override
+    public void insert(User u) {
+        uS.save(u);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        uS.deleteById(id);
+    }
+
+    @Override
+    public void update(User u) {uS.save(u);
+
+    }
+
+
+    }
+
