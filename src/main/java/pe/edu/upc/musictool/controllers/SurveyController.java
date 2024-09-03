@@ -52,7 +52,7 @@ public class SurveyController {
             return m.map(x, SurveyDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/buscarfecha")
+    @GetMapping("/buscarfecha")//busqueda por fecha exacta
     public List<SurveyDTO> buscarFecha(@RequestParam LocalDate f) {
         return sS.buscarFecha(f).stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -60,7 +60,7 @@ public class SurveyController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/buscarfecharango")
+    @GetMapping("/buscarfecharango")//busqueda por rango de fecha
     public List<SurveyDTO> buscarFecharango(@RequestParam("fechainicio") LocalDate fi,@RequestParam("fechafin") LocalDate ff) {
         return sS.buscarFecharango(fi,ff).stream().map(x -> {
             ModelMapper m = new ModelMapper();
