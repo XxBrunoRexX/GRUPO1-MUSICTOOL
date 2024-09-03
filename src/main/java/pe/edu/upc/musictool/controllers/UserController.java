@@ -2,12 +2,10 @@ package pe.edu.upc.musictool.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.SurveyDTO;
 import pe.edu.upc.musictool.dtos.UserDTO;
+import pe.edu.upc.musictool.entities.User;
 import pe.edu.upc.musictool.serviceinterfaces.IUserService;
 
 import java.util.List;
@@ -30,6 +28,20 @@ public class UserController {
             ModelMapper m=new ModelMapper();
             return m.map(x,UserDTO.class);
         }).collect(Collectors.toList());
+    }
+    @PutMapping
+    public void modificar(@RequestBody UserDTO dto){
+        ModelMapper m=new ModelMapper();
+        User v=m.map(dto,User.class);
+        uS.update(v);
+    }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){uS.delete(id);}
+    @PostMapping
+    public void insertar(@RequestBody UserDTO dto){
+        ModelMapper m=new ModelMapper();
+        User v=m.map(dto,User.class);
+        uS.insert(v);
     }
 
 }
