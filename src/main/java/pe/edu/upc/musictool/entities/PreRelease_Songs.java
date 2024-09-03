@@ -2,6 +2,8 @@ package pe.edu.upc.musictool.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Time;
+
 @Entity
 @Table(name = "PreRelease_Songs")
 public class PreRelease_Songs {
@@ -13,7 +15,7 @@ public class PreRelease_Songs {
     @Column(name = "genre", nullable = false, length = 100)
     private String genre;
     @Column(name = "duration", nullable = false, length = 10)
-    private int duration;
+    private Time duration;
 
     public PreRelease_Songs() {}
 
@@ -41,11 +43,11 @@ public class PreRelease_Songs {
         this.genre = genre;
     }
 
-    public int getDuration() {
+    public Time getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 }
