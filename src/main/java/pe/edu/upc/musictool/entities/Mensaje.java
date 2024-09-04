@@ -14,6 +14,9 @@ public class Mensaje {
     private String content;
     @Column(name = "dateSent", nullable = false, length = 500)
     private LocalDate dateSent;
+    @ManyToOne
+    @JoinColumn(name="usuario_id_usua")
+    private User us;
 
     public Mensaje() {
     }
@@ -40,5 +43,13 @@ public class Mensaje {
 
     public void setDateSent(LocalDate dateSent) {
         this.dateSent = dateSent;
+    }
+
+    public User getUs() {
+        return us;
+    }
+
+    public void setUs(User us) {
+        this.us = us;
     }
 }
