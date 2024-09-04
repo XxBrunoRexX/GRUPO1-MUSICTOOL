@@ -45,4 +45,12 @@ public class MensajeController {
     public void eliminar(@PathVariable("id") Integer id){
         mS.delete(id);
     }
+
+    @GetMapping("/busquedas")
+    public List<MensajeDTO> buscar(@RequestParam String contenido){
+        return mS.buscar(contenido).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, MensajeDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

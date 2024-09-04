@@ -10,4 +10,5 @@ public interface IMensajeService {
     public Mensaje listId(int id);
     public void update(Mensaje me);
     public void delete(int id);
+    public List<Mensaje>buscar(String contenido);
 }

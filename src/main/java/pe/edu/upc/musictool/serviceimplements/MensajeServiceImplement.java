@@ -33,4 +33,9 @@ public class MensajeServiceImplement implements IMensajeService {
     public void delete(int id) {
         mR.deleteById(id);
     }
+
+    @Override
+    public List<Mensaje> buscar(String contenido) {
+        return mR.buscar(contenido);
+    }
 }
