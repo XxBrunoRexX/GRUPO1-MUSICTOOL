@@ -4,12 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.PreRelease_SongsDTO;
-import pe.edu.upc.musictool.dtos.SurveyDTO;
-import pe.edu.upc.musictool.dtos.UserDTO;
 import pe.edu.upc.musictool.entities.PreRelease_Songs;
-import pe.edu.upc.musictool.entities.Survey;
 import pe.edu.upc.musictool.serviceinterfaces.IPreRelease_SongsService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,5 +51,23 @@ public class PreRelease_SongsController {
             return m.map(x,PreRelease_SongsDTO.class);
         }).collect(Collectors.toList());
     }
-
+    /*@GetMapping("/buscarartista")
+    public List<PreRelease_SongsDTO> buscarCancionArtista(@RequestParam String artist){
+        return pS.buscarCancionArtista(artist).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,PreRelease_SongsDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/totalcancionesgenero")
+    public List<ReporteCantidadSongsDTO> cantidadCanciones() {
+        List<String[]> lista = pS.contarCancionesOrdenService();
+        List<ReporteCantidadSongsDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ReporteCantidadSongsDTO dto = new ReporteCantidadSongsDTO();
+            dto.setGenre(columna[0]);
+            dto.setQuantitySongs(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }*/
 }
