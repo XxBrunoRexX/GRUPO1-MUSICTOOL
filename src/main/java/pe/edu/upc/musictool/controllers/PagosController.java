@@ -2,11 +2,11 @@ package pe.edu.upc.musictool.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.MensajeDTO;
 import pe.edu.upc.musictool.dtos.PagosDTO;
+import pe.edu.upc.musictool.entities.Mensaje;
+import pe.edu.upc.musictool.entities.Pagos;
 import pe.edu.upc.musictool.serviceinterfaces.IPagosService;
 
 import java.util.List;
@@ -24,5 +24,12 @@ public class PagosController {
             ModelMapper m = new ModelMapper();
             return m.map(x, PagosDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PostMapping
+    public void insertar(@RequestBody Pagos dto){
+        ModelMapper m = new ModelMapper();
+        Pagos pa = m.map(dto, Pagos.class);
+        pgS.insert(pa);
     }
 }

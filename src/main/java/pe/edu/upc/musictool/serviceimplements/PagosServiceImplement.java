@@ -15,4 +15,9 @@ public class PagosServiceImplement implements IPagosService {
     public List<Pagos> list() {
         return pgR.findAll();
     }
+
+    @Override
+    public void insert(Pagos pg) {
+        pgR.save(pg);
+    }
 }

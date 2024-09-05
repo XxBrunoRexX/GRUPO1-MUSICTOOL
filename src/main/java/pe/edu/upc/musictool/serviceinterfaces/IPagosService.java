@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IPagosService {
     public List<Pagos> list();
+    public void insert(Pagos pg);
 }
