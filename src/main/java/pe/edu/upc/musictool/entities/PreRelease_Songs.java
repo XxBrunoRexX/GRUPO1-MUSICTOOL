@@ -17,7 +17,7 @@ public class PreRelease_Songs {
     @Column(name = "genre", nullable = false, length = 100)
     private String genre;
     @Column(name = "duration", nullable = false, length = 10 )
-    private LocalTime duration;
+    private Time duration;
 
     public PreRelease_Songs() {}
 
@@ -45,11 +45,11 @@ public class PreRelease_Songs {
         this.genre = genre;
     }
 
-    public LocalTime getDuration() {
+    public Time getDuration() {
         return duration;
     }
 
-    public void setDuration(LocalTime duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 }
