@@ -21,13 +21,7 @@ public class UserController {
             return m.map(x, UserDTO.class);
         }).collect(Collectors.toList());
     }
-    @GetMapping("/busquedas")
-    public List<UserDTO> buscar(@RequestParam String busqueda) {
-        return uS.buscar(busqueda).stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,UserDTO.class);
-        }).collect(Collectors.toList());
-    }
+
     @PutMapping
     public void modificar(@RequestBody UserDTO dto){
         ModelMapper m=new ModelMapper();
