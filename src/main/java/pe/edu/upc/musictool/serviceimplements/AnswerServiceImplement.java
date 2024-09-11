@@ -18,7 +18,7 @@ public class AnswerServiceImplement implements IAnswerService {
     }
 
     @Override
-    public void insert(Answer an) {
+    public void insert(Answer an) { aR.save(an);
 
     }
 
@@ -28,12 +28,12 @@ public class AnswerServiceImplement implements IAnswerService {
     }
 
     @Override
-    public void update(Answer an) {
+    public void update(Answer an) {aR.save(an);
 
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) {aR.deleteById(id);
 
     }
 }

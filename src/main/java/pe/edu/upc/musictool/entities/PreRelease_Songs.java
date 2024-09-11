@@ -3,8 +3,7 @@ package pe.edu.upc.musictool.entities;
 import jakarta.persistence.*;
 
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 @Entity
 @Table(name = "PreRelease_Songs")
