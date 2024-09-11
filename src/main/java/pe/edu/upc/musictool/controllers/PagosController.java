@@ -32,4 +32,11 @@ public class PagosController {
         Pagos pa = m.map(dto, Pagos.class);
         pgS.insert(pa);
     }
+
+    @GetMapping("/{id}")
+    public PagosDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m = new ModelMapper();
+        PagosDTO dto = m.map(pgS.listId(id), PagosDTO.class);
+        return dto;
+    }
 }
