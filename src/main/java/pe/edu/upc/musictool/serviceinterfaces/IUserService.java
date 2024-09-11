@@ -6,7 +6,6 @@ import java.util.Optional;
 
 public interface IUserService {
     public List<User> list();
-    public List<User> buscar(String tipousuario);
     public User listId(int id_user);
     public  void insert(User u);
     public void delete(Integer id);
