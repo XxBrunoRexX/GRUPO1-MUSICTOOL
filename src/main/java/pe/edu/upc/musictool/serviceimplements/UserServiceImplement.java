@@ -20,11 +20,6 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
-    public List<User> buscar(String tipousuario) {
-        return uS.buscar(tipousuario);
-    }
-
-    @Override
     public User listId(int id_user) {
         return uS.findById(id_user).orElse(new User());
     }
@@ -41,9 +36,7 @@ public class UserServiceImplement implements IUserService {
     }
 
     @Override
-    public void update(User u) {uS.save(u);
-
-    }
+    public void update(User u) {uS.save(u);}
 
 
     }

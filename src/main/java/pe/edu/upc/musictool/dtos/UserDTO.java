@@ -1,6 +1,7 @@
 package pe.edu.upc.musictool.dtos;
 
 import jakarta.persistence.Column;
+import pe.edu.upc.musictool.entities.Role;
 
 public class UserDTO {
     private int id_user;
@@ -8,7 +9,7 @@ public class UserDTO {
     private String correo_usuario;
     private String contraseña_usuario;
     private int telefono_usuario;
-    private String tipo_usuario;
+    private Role ro;
 
     public int getId_user() {
         return id_user;
@@ -50,11 +51,11 @@ public class UserDTO {
         this.telefono_usuario = telefono_usuario;
     }
 
-    public String getTipo_usuario() {
-        return tipo_usuario;
+    public Role getRo() {
+        return ro;
     }
 
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
+    public void setRo(Role ro) {
+        this.ro = ro;
     }
 }
