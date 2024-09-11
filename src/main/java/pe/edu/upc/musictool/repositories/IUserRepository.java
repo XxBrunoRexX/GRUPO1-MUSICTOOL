@@ -8,8 +8,4 @@ import pe.edu.upc.musictool.entities.User;
 import java.util.List;
 
 public interface IUserRepository extends JpaRepository<User, Integer> {
-    @Query("select v from User v where v.tipo_usuario like %:tipousuario%")
-    public List<User> buscar(@Param(("tipousuario")) String tipousuario);
-
-
 }

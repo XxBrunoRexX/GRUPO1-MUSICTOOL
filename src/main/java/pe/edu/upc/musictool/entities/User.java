@@ -17,20 +17,20 @@ public class User {
     private String contraseña_usuario;
     @Column(name = "telefono_usuario", length = 9)
     private int telefono_usuario;
-    @Column(name = "tipo_usuario",nullable = false, length = 9)
-    private String tipo_usuario;
-
+    @ManyToOne
+    @JoinColumn(name = "idRole")
+    private Role ro;
     public User() {
     }
-
-    public User(int id_user, String nombre_usuario, String correo_usuario, String contraseña_usuario, String tipo_usuario, int telefono_usuario) {
+    public User(int id_user, String nombre_usuario, String correo_usuario, String contraseña_usuario, int telefono_usuario, Role ro) {
         this.id_user = id_user;
         this.nombre_usuario = nombre_usuario;
         this.correo_usuario = correo_usuario;
         this.contraseña_usuario = contraseña_usuario;
-        this.tipo_usuario = tipo_usuario;
         this.telefono_usuario = telefono_usuario;
+        this.ro = ro;
     }
+
 
     public int getId_user() {
         return id_user;
@@ -72,11 +72,16 @@ public class User {
         this.telefono_usuario = telefono_usuario;
     }
 
-    public String getTipo_usuario() {
-        return tipo_usuario;
+    public Role getRo() {
+        return ro;
     }
 
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
+    public void setRo(Role ro) {
+        this.ro = ro;
     }
+
+
 }
+
+
+
