@@ -23,6 +23,7 @@ public class MensajeController {
             return m.map(x, MensajeDTO.class);
         }).collect(Collectors.toList());
     }
+
     @PostMapping
     public void insertar(@RequestBody MensajeDTO dto){
         ModelMapper m = new ModelMapper();
