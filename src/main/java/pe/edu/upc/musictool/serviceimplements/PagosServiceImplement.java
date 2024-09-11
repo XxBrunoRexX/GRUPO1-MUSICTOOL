@@ -25,4 +25,14 @@ public class PagosServiceImplement implements IPagosService {
     public Pagos listId(int id) {
         return pgR.findById(id).orElse(new Pagos());
     }
+
+    @Override
+    public void update(Pagos pg) {
+        pgR.save(pg);
+    }
+
+    @Override
+    public void delete(int id) {
+        pgR.deleteById(id);
+    }
 }

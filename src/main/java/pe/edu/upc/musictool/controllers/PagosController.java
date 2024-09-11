@@ -39,4 +39,16 @@ public class PagosController {
         PagosDTO dto = m.map(pgS.listId(id), PagosDTO.class);
         return dto;
     }
+
+    @PutMapping
+    public void modificar(@RequestBody PagosDTO dto){
+        ModelMapper m = new ModelMapper();
+        Pagos pa = m.map(dto,Pagos.class);
+        pgS.update(pa);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id){
+        pgS.delete(id);
+    }
 }
