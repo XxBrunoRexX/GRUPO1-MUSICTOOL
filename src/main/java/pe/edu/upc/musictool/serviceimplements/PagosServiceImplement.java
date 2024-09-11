@@ -35,4 +35,9 @@ public class PagosServiceImplement implements IPagosService {
     public void delete(int id) {
         pgR.deleteById(id);
     }
+
+    @Override
+    public List<Pagos> buscar(Double monto) {
+        return pgR.buscar(monto);
+    }
 }
