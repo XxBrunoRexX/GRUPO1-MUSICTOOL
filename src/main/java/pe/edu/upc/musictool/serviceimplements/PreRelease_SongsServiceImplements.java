@@ -1,6 +1,8 @@
 package pe.edu.upc.musictool.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.musictool.entities.PreRelease_Songs;
 import pe.edu.upc.musictool.repositories.IPreRelease_SongsRepository;
@@ -24,6 +26,11 @@ public class PreRelease_SongsServiceImplements implements IPreRelease_SongsServi
     public List<PreRelease_Songs> buscarGenero(String genre){
         return pR.buscarGenero(genre);
     }
-    public List<PreRelease_Songs> buscarNombre(String nombre){return pR.buscarNombre(nombre);};
+    @Override
+    public List<PreRelease_Songs> buscarNombre(String nombre){return pR.buscarNombre(nombre);}
+    @Override
+    public List<PreRelease_Songs> buscarCancionArtista(String artista){return pR.buscarCancionArtista(artista);}
+    @Override
+    public List<String[]> contarCancionesOrden(){return pR.contarCancionesOrden();};
 
 }
