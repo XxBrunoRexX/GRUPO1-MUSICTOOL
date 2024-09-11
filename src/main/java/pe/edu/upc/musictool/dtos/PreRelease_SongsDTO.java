@@ -10,7 +10,7 @@ public class PreRelease_SongsDTO {
     private String name;
     private String genre;
     private Time duration;
-    /*private User us;*/
+    private User user;
 
     public int getId() {
         return id;
@@ -44,11 +44,11 @@ public class PreRelease_SongsDTO {
         this.duration = duration;
     }
 
-    /*public User getUs() {
-        return us;
+    public User getUser() {
+        return user;
     }
 
-    public void setUs(User us) {
-        this.us = us;
-    }*/
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
