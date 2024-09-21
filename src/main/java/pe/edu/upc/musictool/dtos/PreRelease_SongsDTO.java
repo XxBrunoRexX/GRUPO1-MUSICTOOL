@@ -1,7 +1,6 @@
 package pe.edu.upc.musictool.dtos;
 
-import jakarta.persistence.Column;
-import pe.edu.upc.musictool.entities.User;
+import pe.edu.upc.musictool.entities.Users;
 
 import java.sql.Time;
 
@@ -10,7 +9,7 @@ public class PreRelease_SongsDTO {
     private String name;
     private String genre;
     private Time duration;
-    private User user;
+    private Users user;
 
     public int getId() {
         return id;
@@ -44,11 +43,11 @@ public class PreRelease_SongsDTO {
         this.duration = duration;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 }

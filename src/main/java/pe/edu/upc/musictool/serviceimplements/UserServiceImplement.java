@@ -2,42 +2,34 @@ package pe.edu.upc.musictool.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.musictool.entities.User;
+import pe.edu.upc.musictool.entities.Users;
 import pe.edu.upc.musictool.repositories.IUserRepository;
-import pe.edu.upc.musictool.serviceinterfaces.IUserService;
+import pe.edu.upc.musictool.serviceinterfaces.IUserSevice;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UserServiceImplement implements IUserService {
+public class UserServiceImplement implements IUserSevice {
     @Autowired
-    private IUserRepository uS;
+    private IUserRepository uR;
+
     @Override
-    public List<User> list() {
-       return uS.findAll();
+    public void insert(Users usuario) {
+        uR.save(usuario);
     }
 
     @Override
-    public User listId(int id_user) {
-        return uS.findById(id_user).orElse(new User());
-    }
-
-
-    @Override
-    public void insert(User u) {
-        uS.save(u);
+    public List<Users> list() {
+        return uR.findAll();
     }
 
     @Override
-    public void delete(Integer id) {
-        uS.deleteById(id);
+    public void delete(Long idUsuario) {
+        uR.deleteById(idUsuario);
     }
 
     @Override
-    public void update(User u) {uS.save(u);}
-
-
+    public Users listarId(Long idUsuario) {
+        return uR.findById(idUsuario).orElse(new Users());
     }
-
+}

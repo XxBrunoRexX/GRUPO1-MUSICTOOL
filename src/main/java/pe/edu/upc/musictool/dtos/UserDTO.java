@@ -1,30 +1,27 @@
 package pe.edu.upc.musictool.dtos;
 
-import jakarta.persistence.Column;
-import pe.edu.upc.musictool.entities.Role;
-
 public class UserDTO {
-    private int id_user;
-    private String nombre_usuario;
+    private Long id;
+    private String username;
     private String correo_usuario;
-    private String contraseña_usuario;
+    private String password;
     private int telefono_usuario;
-    private Role ro;
+    private Boolean enabled;
 
-    public int getId_user() {
-        return id_user;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getCorreo_usuario() {
@@ -35,12 +32,12 @@ public class UserDTO {
         this.correo_usuario = correo_usuario;
     }
 
-    public String getContraseña_usuario() {
-        return contraseña_usuario;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña_usuario(String contraseña_usuario) {
-        this.contraseña_usuario = contraseña_usuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getTelefono_usuario() {
@@ -51,11 +48,11 @@ public class UserDTO {
         this.telefono_usuario = telefono_usuario;
     }
 
-    public Role getRo() {
-        return ro;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setRo(Role ro) {
-        this.ro = ro;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

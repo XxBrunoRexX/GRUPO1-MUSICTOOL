@@ -1,37 +1,45 @@
 package pe.edu.upc.musictool.entities;
 
+
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name="Role")
-public class Role {
+@Table(name = "roles", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "rol"})})
+public class Role implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRole;
-    @Column(name = "TipoRole",nullable = false, length = 15)
-    private String TipoRole;
+    private Long id;
+    private String rol;
 
-    public Role() {
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
+
+
+    public Users getUser() {
+        return user;
     }
 
-    public Role(int idRole, String tipoRole) {
-        this.idRole = idRole;
-        TipoRole = tipoRole;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
-    public int getIdRole() {
-        return idRole;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdRole(int idRole) {
-        this.idRole = idRole;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getTipoRole() {
-        return TipoRole;
+    public String getRol() {
+        return rol;
     }
 
-    public void setTipoRole(String tipoRole) {
-        TipoRole = tipoRole;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

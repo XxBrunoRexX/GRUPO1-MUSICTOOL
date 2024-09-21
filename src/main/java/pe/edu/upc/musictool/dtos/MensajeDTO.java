@@ -1,6 +1,6 @@
 package pe.edu.upc.musictool.dtos;
 
-import pe.edu.upc.musictool.entities.User;
+import pe.edu.upc.musictool.entities.Users;
 
 import java.time.LocalDate;
 
@@ -8,7 +8,7 @@ public class MensajeDTO {
     private int id;
     private String content;
     private LocalDate dateSent;
-    private User us;
+    private Users us;
 
     public int getId() {
         return id;
@@ -34,11 +34,11 @@ public class MensajeDTO {
         this.dateSent = dateSent;
     }
 
-    public User getUs() {
+    public Users getUs() {
         return us;
     }
 
-    public void setUs(User us) {
+    public void setUs(Users us) {
         this.us = us;
     }
 }

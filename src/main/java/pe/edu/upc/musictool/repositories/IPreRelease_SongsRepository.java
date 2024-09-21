@@ -14,7 +14,7 @@ public interface IPreRelease_SongsRepository extends JpaRepository<PreRelease_So
     public List<PreRelease_Songs> buscarGenero(@Param(("genre")) String genero);
     @Query("select p from PreRelease_Songs p where p.name like %:name%")
     public List<PreRelease_Songs> buscarNombre(@Param(("name")) String nombre);
-    @Query("select p from PreRelease_Songs p where p.user.nombre_usuario=:artista")
+    @Query("select p from PreRelease_Songs p where p.user.username=:artista")
     public List<PreRelease_Songs> buscarCancionArtista(@Param("artista") String artista);
     @Query(value = "select genre, count(*) as total_canciones\n" +
             " from pre_release_songs\n" +

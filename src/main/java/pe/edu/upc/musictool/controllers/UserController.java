@@ -2,44 +2,60 @@ package pe.edu.upc.musictool.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.UserDTO;
-import pe.edu.upc.musictool.entities.User;
-import pe.edu.upc.musictool.serviceinterfaces.IUserService;
+import pe.edu.upc.musictool.dtos.UserListDTO;
+import pe.edu.upc.musictool.entities.Users;
+import pe.edu.upc.musictool.serviceinterfaces.IUserSevice;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @RestController
-    @RequestMapping("/Users")
+@RequestMapping("/usuarios")
+@PreAuthorize("hasAuthority('ADMINISTRADOR')")
 public class UserController {
     @Autowired
-    private IUserService uS;
-    @GetMapping
-    public List<UserDTO> list() {
-        return uS.list().stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, UserDTO.class);
-        }).collect(Collectors.toList());
+    private IUserSevice uS;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @PostMapping
+    public void registrar(@RequestBody UserDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Users u = m.map(dto, Users.class);
+        String encodedPassword = passwordEncoder.encode(u.getPassword());
+        u.setPassword(encodedPassword);
+        uS.insert(u);
     }
 
     @PutMapping
-    public void modificar(@RequestBody UserDTO dto){
-        ModelMapper m=new ModelMapper();
-        User v=m.map(dto,User.class);
-        uS.update(v);
+    public void modificar(@RequestBody UserDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Users u = m.map(dto, Users.class);
+        uS.insert(u);
     }
+
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){uS.delete(id);}
-    @PostMapping
-    public void insertar(@RequestBody UserDTO dto){
-        ModelMapper m=new ModelMapper();
-        User v=m.map(dto,User.class);
-        uS.insert(v);
+    public void eliminar(@PathVariable("id") Long id) {
+        uS.delete(id);
     }
-@GetMapping("/{id}")
-public UserDTO listaId(@PathVariable("id")  Integer id)
-{   ModelMapper m=new ModelMapper();
-    UserDTO udto = m.map(uS.listId(id),UserDTO.class);
-    return udto;
+
+    @GetMapping("/{id}")
+    public UserDTO listarId(@PathVariable("id") Long id) {
+        ModelMapper m = new ModelMapper();
+        UserDTO dto = m.map(uS.listarId(id), UserDTO.class);
+        return dto;
     }
+
+    @GetMapping
+    public List<UserListDTO> listar() {
+        return uS.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, UserListDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 }

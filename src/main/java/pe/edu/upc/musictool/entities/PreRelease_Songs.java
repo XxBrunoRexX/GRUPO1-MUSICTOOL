@@ -19,11 +19,11 @@ public class PreRelease_Songs {
     private Time duration;
     @ManyToOne
     @JoinColumn(name = "id_user")
-    private User user;
+    private Users user;
 
     public PreRelease_Songs() {}
 
-    public PreRelease_Songs(int id, String name, String genre, Time duration, User user) {
+    public PreRelease_Songs(int id, String name, String genre, Time duration, Users user) {
         this.id = id;
         this.name = name;
         this.genre = genre;
@@ -63,11 +63,11 @@ public class PreRelease_Songs {
         this.duration = duration;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 }
