@@ -5,9 +5,10 @@ import pe.edu.upc.musictool.entities.Role;
 import java.util.List;
 
 public interface IRoleService {
+    public void insert(Role rol);
     public List<Role> list();
-    List<Role> buscar(String TipoRole);
-    void insert(Role r);
-    void update(Role r);
-    void delete(Integer id);
+
+    public void delete(Long idRol);
+
+    public Role listarId(Long idRol);
 }

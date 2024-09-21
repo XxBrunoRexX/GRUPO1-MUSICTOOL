@@ -16,7 +16,7 @@ public class Mensaje {
     private LocalDate dateSent;
     @ManyToOne
     @JoinColumn(name="usuario_id_usua")
-    private User us;
+    private Users us;
 
     public Mensaje() {
     }
@@ -45,11 +45,11 @@ public class Mensaje {
         this.dateSent = dateSent;
     }
 
-    public User getUs() {
+    public Users getUs() {
         return us;
     }
 
-    public void setUs(User us) {
+    public void setUs(Users us) {
         this.us = us;
     }
 }

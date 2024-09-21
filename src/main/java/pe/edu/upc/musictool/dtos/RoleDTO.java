@@ -1,22 +1,33 @@
 package pe.edu.upc.musictool.dtos;
 
+import pe.edu.upc.musictool.entities.Users;
+
 public class RoleDTO {
-    private int idRole;
-    private String TipoRole;
+    private Long id;
+    private String rol;
+    private Users user;
 
-    public int getIdRole() {
-        return idRole;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdRole(int idRole) {
-        this.idRole = idRole;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getTipoRole() {
-        return TipoRole;
+    public String getRol() {
+        return rol;
     }
 
-    public void setTipoRole(String tipoRole) {
-        TipoRole = tipoRole;
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 }
