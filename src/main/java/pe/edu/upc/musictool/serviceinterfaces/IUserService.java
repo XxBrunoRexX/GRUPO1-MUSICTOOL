@@ -10,7 +10,7 @@ public interface IUserService {
     public  void insert(User u);
     public void delete(Integer id);
     public void update(User u);
-
+    public List<String[]> muestraidrole();
 
 }
 

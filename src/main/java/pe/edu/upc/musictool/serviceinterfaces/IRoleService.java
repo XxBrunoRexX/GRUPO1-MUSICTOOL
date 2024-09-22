@@ -10,4 +10,5 @@ public interface IRoleService {
     void insert(Role r);
     void update(Role r);
     void delete(Integer id);
+
 }

@@ -12,4 +12,5 @@ import java.util.List;
 public interface IRoleRepository extends JpaRepository<Role, Integer> {
 @Query("select v from Role v where v.TipoRole like %:TipoRole%")
    public  List<Role> buscar(@Param(("TipoRole")) String tipoRole);
+
 }

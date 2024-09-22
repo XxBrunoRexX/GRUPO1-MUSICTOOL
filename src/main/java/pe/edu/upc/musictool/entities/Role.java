@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idRole;
-    @Column(name = "TipoRole",nullable = false, length = 15)
-    private String TipoRole;
+        private int idRole;
+        @Column(name = "TipoRole",nullable = false, length = 15)
+        private String TipoRole;
 
     public Role() {
     }

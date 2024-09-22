@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.UserDTO;
 import pe.edu.upc.musictool.entities.User;
 import pe.edu.upc.musictool.serviceinterfaces.IUserService;
-
+import pe.edu.upc.musictool.dtos.IdRoleDTO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestController
@@ -41,5 +42,18 @@ public UserDTO listaId(@PathVariable("id")  Integer id)
 {   ModelMapper m=new ModelMapper();
     UserDTO udto = m.map(uS.listId(id),UserDTO.class);
     return udto;
+    }
+    @GetMapping("/{muestraidrole}")
+    public List<IdRoleDTO> muestraidrole()
+    {
+        List<String[]> lista=uS.muestraidrole();
+        List<IdRoleDTO> listaDTO=new ArrayList<>();
+        for (String[] columna : lista) {
+            IdRoleDTO dto = new IdRoleDTO();
+            dto.setTipo_role(columna[0]);
+            dto.setId_user(Integer.parseInt((columna[1])));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

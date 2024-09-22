@@ -1,6 +1,4 @@
 package pe.edu.upc.musictool.dtos;
-
-import jakarta.persistence.Column;
 import pe.edu.upc.musictool.entities.Role;
 
 public class UserDTO {

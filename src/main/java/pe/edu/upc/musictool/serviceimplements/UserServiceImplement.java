@@ -38,6 +38,11 @@ public class UserServiceImplement implements IUserService {
     @Override
     public void update(User u) {uS.save(u);}
 
-
+    @Override
+    public List<String[]> muestraidrole() {
+        return uS.muestraidrole();
     }
+
+
+}
 
