@@ -3,14 +3,14 @@ package pe.edu.upc.musictool.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.musictool.entities.Merchandising;
-import pe.edu.upc.musictool.repositories.IMerchandisingRepository;
+import pe.edu.upc.musictool.repositories.IMerchadisingRepository;
 import pe.edu.upc.musictool.serviceinterfaces.IMerchandisingService;
 
 import java.util.List;
 @Service
 public class MerchandisingServiceImplement implements IMerchandisingService {
    @Autowired
-    private IMerchandisingRepository mR;
+    private IMerchadisingRepository mR;
 
     @Override
     public List<Merchandising> list() { return mR.findAll();
@@ -32,6 +32,10 @@ public class MerchandisingServiceImplement implements IMerchandisingService {
     @Override
     public List<Merchandising> buscarnombre(String nombre) { return mR.buscarnombre(nombre);
     }
+    @Override
+    public List<Merchandising> buscardescripcion(String descripcion) { return mR.buscardescripcion(descripcion);
+    }
+
 
 }
 

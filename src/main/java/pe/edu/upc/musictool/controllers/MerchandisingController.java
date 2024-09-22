@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.MerchandisingDTO;
+import pe.edu.upc.musictool.dtos.PreRelease_SongsDTO;
 import pe.edu.upc.musictool.entities.Merchandising;
 import pe.edu.upc.musictool.serviceinterfaces.IMerchandisingService;
 
@@ -44,6 +45,21 @@ public class MerchandisingController {
     @DeleteMapping("/{id}")
     public void deleteMerchandising(@PathVariable("id") int id) {
         mS.deleteMerchandising(id);
+    }
+
+    @GetMapping("/buscarnombre")
+    public List<MerchandisingDTO> buscarNombre(@RequestParam String name) {
+        return mS.buscarnombre(name).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MerchandisingDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscardescripcion")
+    public List<MerchandisingDTO> buscarDescripcion(@RequestParam String name) {
+        return mS.buscarnombre(name).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, MerchandisingDTO.class);
+        }).collect(Collectors.toList());
     }
 
 }
