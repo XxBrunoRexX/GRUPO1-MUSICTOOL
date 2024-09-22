@@ -10,6 +10,7 @@ public interface IMerchandisingService {
     public void updateMerchandising (Merchandising me);
     public void deleteMerchandising (int id);
     public List<Merchandising> buscarnombre(String nombre);
+    public List<Merchandising> buscardescripcion(String descripcion);
 }
 
 
