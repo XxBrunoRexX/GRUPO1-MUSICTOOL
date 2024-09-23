@@ -10,4 +10,5 @@ public interface IPagosService {
     public Pagos listId(int id);
     public void update(Pagos pg);
     public void delete(int id);
+    public List<Pagos>buscar(Double monto);
 }

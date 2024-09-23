@@ -51,4 +51,12 @@ public class PagosController {
     public void eliminar(@PathVariable("id") Integer id){
         pgS.delete(id);
     }
+
+    @GetMapping("/busquedas")
+    public List<PagosDTO> buscar(@RequestParam Double monto){
+        return pgS.buscar(monto).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PagosDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
