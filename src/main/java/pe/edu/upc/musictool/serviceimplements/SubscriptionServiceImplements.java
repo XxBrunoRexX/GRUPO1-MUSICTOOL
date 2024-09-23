@@ -21,10 +21,11 @@ public class SubscriptionServiceImplements implements ISuscriptionService {
     public void delete(int idSub){sR.deleteById(idSub);}
     @Override
     public void update(Suscription idSub){sR.save(idSub);}
-
+    @Override
     public List<Suscription> buscartipodesuscripcion (String tiposuscripcion){
         return sR.buscartipodesuscripcion(tiposuscripcion);
     }
+    @Override
     public List<Suscription> buscarrango (LocalDate fechainicio, LocalDate fechafin) {
         return sR.buscarrango(fechainicio, fechafin);
     }
