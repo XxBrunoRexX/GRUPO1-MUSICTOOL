@@ -17,6 +17,10 @@ public class Pagos {
     @Column(name = "pay_method", nullable = false, length = 100)
     private String pay_method;
     // Falta tabla suscripción para FK
+    @ManyToOne
+    @JoinColumn(name = "id_subs")
+    private Suscription subs;
+
 
     public Pagos() {
     }

@@ -12,4 +12,5 @@ public interface IUserSevice {
     public void delete(Long idUsuario);
 
     public Users listarId(Long idUsuario);
+    public List<String[]> muestraidrole();
 }

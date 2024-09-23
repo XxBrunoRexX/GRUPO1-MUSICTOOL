@@ -2,7 +2,7 @@ package pe.edu.upc.musictool.dtos;
 
 public class UserListDTO {
     private Long id;
-    private String usenname;
+    private String username;
 
     public Long getId() {
         return id;
@@ -12,11 +12,11 @@ public class UserListDTO {
         this.id = id;
     }
 
-    public String getUsenname() {
-        return usenname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsenname(String usenname) {
-        this.usenname = usenname;
+    public void setUsername(String username) {
+        this.username = this.username;
     }
 }

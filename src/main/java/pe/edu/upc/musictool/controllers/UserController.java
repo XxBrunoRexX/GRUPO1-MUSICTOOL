@@ -5,11 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.musictool.dtos.RoleDTO;
 import pe.edu.upc.musictool.dtos.UserDTO;
 import pe.edu.upc.musictool.dtos.UserListDTO;
 import pe.edu.upc.musictool.entities.Users;
 import pe.edu.upc.musictool.serviceinterfaces.IUserSevice;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,6 +58,20 @@ public class UserController {
             ModelMapper m = new ModelMapper();
             return m.map(x, UserListDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/{role}")
+    public List<RoleDTO> muestraidrole()
+    {
+        List<String[]> lista=uS.muestraidrole();
+        List<RoleDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            RoleDTO dto = new RoleDTO();
+            dto.setId(Long.valueOf(columna[0]));
+            dto.setRol(String.valueOf(Integer.parseInt((columna[1]))));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }
