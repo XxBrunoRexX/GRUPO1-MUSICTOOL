@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.musictool.entities.Users;
 
+import java.util.List;
+
 @Repository
 public interface IUserRepository extends JpaRepository<Users, Long> {
     public Users findByUsername(String username);
@@ -19,5 +21,11 @@ public interface IUserRepository extends JpaRepository<Users, Long> {
     @Modifying
     @Query(value = "insert into roles (rol, user_id) VALUES (:rol, :user_id)", nativeQuery = true)
     public void insRol(@Param("rol") String authority, @Param("user_id") Long user_id);
+
+
+    @Query(value = "  SELECT u.id, r.rol\n" +
+            "        FROM users u\n" +
+            "        JOIN roles r ON u.id = r.id",nativeQuery = true)
+    public List<String[]> muestraidrole();
 
 }

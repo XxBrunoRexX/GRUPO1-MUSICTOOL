@@ -34,12 +34,12 @@ public class Users implements Serializable {
         this.id = id;
     }
 
-    public String getNombre_usuario() {
+    public String getUsername() {
         return username;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.username = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getCorreo_usuario() {
@@ -54,8 +54,8 @@ public class Users implements Serializable {
         return password;
     }
 
-    public void setPassword(String contraseña_usuario) {
-        this.password = contraseña_usuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getTelefono_usuario() {

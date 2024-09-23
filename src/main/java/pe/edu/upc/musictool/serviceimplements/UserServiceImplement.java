@@ -32,4 +32,6 @@ public class UserServiceImplement implements IUserSevice {
     public Users listarId(Long idUsuario) {
         return uR.findById(idUsuario).orElse(new Users());
     }
+    @Override
+    public List<String[]> muestraidrole(){return uR.muestraidrole();}
 }
