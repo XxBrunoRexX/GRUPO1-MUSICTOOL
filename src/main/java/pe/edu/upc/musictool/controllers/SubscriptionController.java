@@ -4,10 +4,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.musictool.dtos.PreRelease_SongsDTO;
 import pe.edu.upc.musictool.dtos.SubscriptionDTO;
+import pe.edu.upc.musictool.dtos.SurveyDTO;
 import pe.edu.upc.musictool.entities.PreRelease_Songs;
 import pe.edu.upc.musictool.entities.Suscription;
 import pe.edu.upc.musictool.serviceinterfaces.ISuscriptionService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,4 +38,19 @@ public class SubscriptionController {
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id")int id){pS.delete(id);}
+
+    @GetMapping("/buscartipodesuscripcion")
+    public List<SubscriptionDTO> buscartipodesuscripcion(@RequestParam String tiposuscripcion) {
+        return pS.buscartipodesuscripcion(tiposuscripcion).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, SubscriptionDTO.class);
+        }).collect(Collectors.toList());
+    }
+    @GetMapping("/buscarfecharango")
+    public List<SubscriptionDTO> buscarrango(@RequestParam("fechainicio") LocalDate fi, @RequestParam("fechafin") LocalDate ff) {
+        return pS.buscarrango(fi,ff).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, SubscriptionDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

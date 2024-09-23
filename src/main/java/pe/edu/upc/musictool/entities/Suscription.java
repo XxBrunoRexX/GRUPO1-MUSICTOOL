@@ -11,7 +11,7 @@ public class Suscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "type_susciption", nullable = false)
-    private Double type_susciption;
+    private String type_susciption;
     @Column(name = "sub_date", nullable = false)
     private LocalDate sub_date;
     @ManyToOne
@@ -21,7 +21,7 @@ public class Suscription {
     public Suscription() {
     }
 
-    public Suscription(int id, Double type_susciption, LocalDate sub_date, Users user) {
+    public Suscription(int id, String type_susciption, LocalDate sub_date, Users user) {
         this.id = id;
         this.type_susciption = type_susciption;
         this.sub_date = sub_date;
@@ -36,11 +36,11 @@ public class Suscription {
         this.id = id;
     }
 
-    public Double getType_susciption() {
+    public String getType_susciption() {
         return type_susciption;
     }
 
-    public void setType_susciption(Double type_susciption) {
+    public void setType_susciption(String type_susciption) {
         this.type_susciption = type_susciption;
     }
 
