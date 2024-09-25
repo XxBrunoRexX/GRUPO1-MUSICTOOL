@@ -17,6 +17,6 @@ public class UserListDTO {
     }
 
     public void setUsername(String username) {
-        this.username = this.username;
+        this.username = username;
     }
 }
